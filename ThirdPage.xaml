@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MauiAndroidApp.ThirdPage" 
+             xmlns:acrylic="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
+             >
+    <Grid BackgroundColor="#191919">
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped" />
+        </Grid.GestureRecognizers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height=".8*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Image   
+            Source="background.png" 
+            Grid.ColumnSpan="3"   
+            Aspect="Center"
+            Margin="40,0,0,0"
+            Grid.Row="2"  
+            Opacity="0.1" 
+            />
+        <Image 
+            Source="background_line.png" 
+            Grid.ColumnSpan="3" 
+            Grid.Row="2" 
+            Aspect="AspectFill"
+            />
+        <Image    
+            Source="black_art.png"   
+            Margin="0,40,0,0"
+            Grid.Column="1"  
+            Grid.RowSpan="3"  />
+
+        <StackLayout   
+            Grid.Row="1"  
+            Grid.ColumnSpan="2" 
+            Grid.Column="0" 
+            Margin="30,0" >
+            <Label 
+                Text="A &amp; H"
+                FontFamily="FontAbhayaLibreBold"
+                Margin="10,0"
+                FontSize="60"    
+                FontAttributes="Bold" />
+            <Label 
+                Text="Liquors"
+                FontFamily="FontAbhayaLibreRegular"
+                CharacterSpacing="10"
+                FontAttributes="None"
+                FontSize="21"   />
+            <Label 
+                FontFamily="FontFontello"
+                Margin="0,30"
+                FontSize="Small"
+                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac interdum sapien." />
+        </StackLayout>
+        <Grid    
+            Grid.Row="2" 
+            Margin="30"
+            Grid.ColumnSpan="3"
+             >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height=".40*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".80*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout
+                Grid.Row="1"
+                Grid.Column="0" 
+                Grid.ColumnSpan="2"
+                Spacing="10"
+                Orientation="Horizontal">
+                <BoxView 
+                    Color="gray"
+                    WidthRequest="10"
+                    HeightRequest="10"
+                    CornerRadius="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <BoxView 
+                    Color="gray"
+                    WidthRequest="10"
+                    HeightRequest="10"
+                    CornerRadius="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <BoxView 
+                    Color="#F9BA32"
+                    WidthRequest="10"
+                    HeightRequest="10"
+                    CornerRadius="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+            </StackLayout>
+
+            <Button     
+                Margin="10,15"
+                Grid.Row="1"
+                Grid.Column="1" 
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="18" 
+                CornerRadius="12"   
+                Clicked="Button_Clicked"
+                BackgroundColor="#F9BA32"
+                Text="Comenzar" > 
+            </Button>
+        </Grid>
+
+    </Grid>
+
+
+    
+</ContentPage>

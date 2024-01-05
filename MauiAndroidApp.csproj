@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>MauiAndroidApp</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>MauiAndroidApp</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.mauiandroidapp</ApplicationId>
+		<ApplicationIdGuid>4b89f628-48c0-4dbd-8aa5-9e55e64663af</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\ardbeg.png" />
+	  <MauiImage Remove="Resources\Images\background.png" />
+	  <MauiImage Remove="Resources\Images\background_line.png" />
+	  <MauiImage Remove="Resources\Images\bell.png" />
+	  <MauiImage Remove="Resources\Images\black_art.png" />
+	  <MauiImage Remove="Resources\Images\charlotte.png" />
+	  <MauiImage Remove="Resources\Images\dalmore.png" />
+	  <MauiImage Remove="Resources\Images\dotnet_bot.svg" />
+	  <MauiImage Remove="Resources\Images\jack_daniels.png" />
+	  <MauiImage Remove="Resources\Images\menu.png" />
+	  <MauiImage Remove="Resources\Images\octomore101.png" />
+	  <MauiImage Remove="Resources\Images\shopping_bag.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <MauiImage Include="Resources\Images\ardbeg.png" />
+    <MauiImage Include="Resources\Images\background.png" />
+    <MauiImage Include="Resources\Images\background_line.png" />
+    <MauiImage Include="Resources\Images\bell.png" />
+    <MauiImage Include="Resources\Images\black_art.png" />
+    <MauiImage Include="Resources\Images\charlotte.png" />
+    <MauiImage Include="Resources\Images\dalmore.png" />
+    <MauiImage Include="Resources\Images\dotnet_bot.svg" />
+    <MauiImage Include="Resources\Images\jack_daniels.png" />
+    <MauiImage Include="Resources\Images\menu.png" />
+    <MauiImage Include="Resources\Images\octomore101.png" />
+    <MauiImage Include="Resources\Images\shopping_bag.png" />
+	</ItemGroup>
+ 
+	<ItemGroup>
+		<PackageReference Include="AcrylicView.Maui" Version="2.1.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+ 
+	<ItemGroup>
+	  <Compile Update="ThirdPage.xaml.cs">
+	    <DependentUpon>ThirdPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="SecondPage.xaml.cs">
+	    <DependentUpon>SecondPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+ 
+	<ItemGroup>
+	  <MauiXaml Update="Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ThirdPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="SecondPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>
